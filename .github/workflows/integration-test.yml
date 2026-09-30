@@ -22,16 +22,16 @@ jobs:
         id: auth
       - name: Cancel Workflow
         if: ${{ always() && steps.auth.outputs.IS_AUTHORIZED == 'false' }}
-        uses: andymckay/cancel-action@0.2
+        uses: andymckay/cancel-action@8f8510d9dea52fcc8eb6ca10d6ce47fd5fc43cd8 # 0.2
 
       - name: Log in to GitHub Docker Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7 # v1
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Import Secrets
-        uses: hashicorp/vault-action@v2.4.0
+        uses: hashicorp/vault-action@61dd38f4918626fea0c45016a508893e5c045210 # v2.4.0
         with:
           url: ${{ secrets.VAULT_URL }}
           method: approle
@@ -80,8 +80,8 @@ jobs:
             secret/data/sol/async/agent/ci INTEGRATIONTEST_APIPRODUCTNAME | INTEGRATIONTEST_APIPRODUCTNAME ;
             secret/data/sol/async/agent/ci INTEGRATIONTEST_CLEANUP | INTEGRATIONTEST_CLEANUP
 
-      - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
+      - uses: actions/setup-go@bfdd3570ce990073878bf10f6b2d79082de49492 # v2
         with:
           go-version: '^1.13.15'
       - run: |
