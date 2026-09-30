@@ -8,9 +8,8 @@ require (
 	github.com/deepmap/oapi-codegen v1.10.1
 	github.com/google/uuid v1.3.0
 	github.com/pkg/errors v0.9.1
-	github.com/sirupsen/logrus v1.8.1
+	github.com/sirupsen/logrus v1.8.3
 	gopkg.in/yaml.v2 v2.4.0
-
 )
 
 replace (
